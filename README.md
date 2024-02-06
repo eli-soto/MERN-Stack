@@ -14,6 +14,9 @@
 AS a senior engineer working on an e-commerce platform
 I WANT my platform that uses MERN to manage global state instead of the Context API
 SO THAT my website's state management is taken out of the React ecosystem.
+We have a team of four Victor Hernandez will work on Javascript 
+Damaris M Maldonado will work on CSS. Jaylon 
+
 ```
 ## Acceptance Criteria 
 ```
