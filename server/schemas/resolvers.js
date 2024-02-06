@@ -1,37 +1,27 @@
 const resolvers = {
   Query: {
-    Products:(parent,args) => {
-      const {id} = args;
-      return products.id === id;
+    getProduct: async (parent, { productId }) => {
+      return Product.findOne({ _id: productId });
+    },
+    getAllProduct: async () => {
+      return Product.find();
     }
   },
   Mutation: {
-    addProduct: (parent,args) => {
-      const{name,price,description} = args;
-      const newProduct = {
-        id: uuidv4(),
-        name,
-        price,
-        description
-      }
-      Products.push(newProduct);
-      return newProduct;
+    createProduct: async (parent, { name, price, description }) => {
+      return Product.create({ name, price, description });
     },
-    updateProduct: (parent,args) => {
-      const {id,name,price,description } = args;
-      const product = Products.find(product => product.id === id);
-      product.name = name;
-      product.price = price;
-      product.description = description;
-      return product;
+    updateProduct: async (parent, { id, name, price, description }) => {
+      return Product.findOneAndUpdate(
+        { _id: id },
+        { name, price, description },
+        { new: true }
+      );
     },
-    deleteProduct: (parent,args) => {
-      const {id } = args;
-      const product = Products.find(product => product.id === id);
-      products = Products.filter(product => product.id !== id);
-      return product;
+    deleteProduct: async (parent, { id }) => {
+      return Product.findOneAndDelete({ _id: id });
     }
   }
 };
 
-module.exports = resolvers;
+module.exports = { typeDefs, resolvers };

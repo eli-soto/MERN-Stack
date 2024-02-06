@@ -1,7 +1,11 @@
 const { Schema, model } = require('mongoose');
 
 const itemSchema = new Schema({
-  item1: {
+  Shoe1: {
+    id:{
+      type: Number,
+      required: true
+    },
     name: {
       type: String,
       required: true,
@@ -15,7 +19,7 @@ const itemSchema = new Schema({
       required: true,
     },
   },
-  item2: {
+  Shoe2: {
     name: {
       type: String,
       required: true,

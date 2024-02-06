@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_TECH = gql`
+export const QUERY_Products = gql`
   query tech {
     tech {
       _id
@@ -9,14 +9,17 @@ export const QUERY_TECH = gql`
   }
 `;
 
-export const QUERY_MATCHUPS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+export const QUERY_Items = gql`
+  query Products($_id: String) {
+    getProducts(_id: $_id) {
       _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
+      item1
+      item2
+      item3
+      item4
+      item5
+      item6
+
     }
   }
 `;
