@@ -1,25 +1,19 @@
 const typeDefs = `
-  type Tech {
-    _id: ID!
+  type Product {
+    id: ID!
     name: String!
+    price: Float!
+    description: String!
   }
-
-  type Matchup {
-    _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
-  }
-
+  
   type Query {
-    tech: [Tech]
-    matchups(_id: String): [Matchup]
+    getProduct(id:ID!): Product
+    getAllProducts: [Product]
   }
-
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    createProduct(name: String!, price: Float!, description: String!): Product
+    updateProduct(id: ID!, name: String!, price: Float!, description: String!): Product
+    deleteProduct(id: ID!): Product
   }
 `;
 

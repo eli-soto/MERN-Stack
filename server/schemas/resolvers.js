@@ -1,29 +1,40 @@
-const { Tech, Matchup } = require('../models');
-
 const resolvers = {
   Query: {
-    tech: async () => {
-      return Tech.find({});
+    products: () => {
+      return products;
     },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
-    },
+    product:(parent,args) => {
+      const {id} = args;
+      return products.id === id;
+    }
   },
   Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    addProduct: (parent,args) => {
+      const{name,price,description} = args;
+      const newProduct = {
+        id: uuidv4(),
+        name,
+        price,
+        description
+      }
+      products.push(newProduct);
+      return newProduct;
     },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
+    updateProduct: (parent,args) => {
+      const {id,name,price,description } = args;
+      const product = products.find(product => product.id === id);
+      product.name = name;
+      product.price = price;
+      product.description = description;
+      return product;
     },
-  },
+    deleteProduct: (parent,args) => {
+      const {id } = args;
+      const product = products.find(product => product.id === id);
+      products = products.filter(product => product.id !== id);
+      return product;
+    }
+  }
 };
 
 module.exports = resolvers;
