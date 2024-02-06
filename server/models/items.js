@@ -1,35 +1,42 @@
 const { Schema, model } = require('mongoose');
 
 const itemSchema = new Schema({
-  Shoe1: {
+  item1: {
     id:{
+      id:1,
       type: Number,
       required: true
     },
     name: {
+      name:"Shoes1",
       type: String,
       required: true,
     },
     price: {
+      price: 100,
       type: Number,
+      path: 'item1.price',
       required: true,
     },
     description: {
       type: String,
       required: true,
+      path: String
     },
   },
-  Shoe2: {
+  item2: {
     name: {
       type: String,
       required: true,
     },
     price: {
+      price: 200,
       type: Number,
       required: true,
     },
     description: {
       type: String,
+      path: String,
       required: true,
     },
   },
@@ -39,11 +46,13 @@ const itemSchema = new Schema({
       required: true,
     },
     price: {
+      price: 200,
       type: Number,
       required: true,
     },
     description: {
       type: String,
+      path: String,
       required: true,
     },
   },
@@ -53,11 +62,13 @@ const itemSchema = new Schema({
       required: true,
     },
     price: {
+      price: 200,
       type: Number,
       required: true,
     },
     description: {
       type: String,
+      path: String,
       required: true,
     },
   },
@@ -67,11 +78,13 @@ const itemSchema = new Schema({
       required: true,
     },
     price: {
+      price: 200,
       type: Number,
       required: true,
     },
     description: {
       type: String,
+      path: String,
       required: true,
     },
   },
@@ -81,11 +94,13 @@ const itemSchema = new Schema({
       required: true,
     },
     price: {
+      price: 200,
       type: Number,
       required: true,
     },
     description: {
       type: String,
+      path: String,
       required: true,
     },
   },

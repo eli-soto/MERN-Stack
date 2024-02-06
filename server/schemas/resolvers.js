@@ -1,27 +1,29 @@
+const { Product } = require('../models');
+
 const resolvers = {
   Query: {
     getProduct: async (parent, { productId }) => {
-      return Product.findOne({ _id: productId });
+      return await Product.findOne({ _id: productId });
     },
     getAllProduct: async () => {
-      return Product.find();
+      return await Product.find();
     }
   },
   Mutation: {
     createProduct: async (parent, { name, price, description }) => {
-      return Product.create({ name, price, description });
+      return await Product.create({ name, price, description });
     },
     updateProduct: async (parent, { id, name, price, description }) => {
-      return Product.findOneAndUpdate(
-        { _id: id },
+      return await Product.findByIdAndUpdate(
+        id,
         { name, price, description },
         { new: true }
       );
     },
     deleteProduct: async (parent, { id }) => {
-      return Product.findOneAndDelete({ _id: id });
+      return await Product.findByIdAndDelete(id);
     }
   }
 };
 
-module.exports = { typeDefs, resolvers };
+module.exports = { resolvers };

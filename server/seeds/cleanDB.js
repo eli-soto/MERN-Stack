@@ -1,13 +1,11 @@
 const models = require('../models');
 const db = require('../config/connection');
 
-module.exports = mongoose.connect('mongodb://localhost:27017/your_database', { useNewUrlParser: true, useUnifiedTopology: true })
-.then(async () => {
-  console.log('Connected to MongoDB');
-
-  // Delete all products from the database
-  await Product.deleteMany();
-
-  console.log('Database cleaned successfully');
-})
-.catch(err => console.error('Error connecting to MongoDB:', err));
+module.exports = //Deleting all Products in the database
+  async () => {
+    await db.once('open', async () => {
+      await models.Product.deleteMany({});
+      console.log('Database cleaned!');
+      process.exit(0);
+    });
+  };

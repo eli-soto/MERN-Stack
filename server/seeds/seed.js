@@ -1,7 +1,6 @@
 const db = require('../config/connection');
-const { Items } = require('../models/items');
+const Items = require('../models/items');
 const cleanDB = require('./cleanDB');
-
 const productNames = require('./productNames');
 
 db.once('open', async () => {

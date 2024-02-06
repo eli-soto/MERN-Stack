@@ -1,7 +1,5 @@
 const { gql } = require('apollo-server-express');
-const Product = require('./models/items'); // Import your Product model
 
-// Define GraphQL schema using the schema language
 const typeDefs = gql`
   type Product {
     _id: ID!
@@ -21,4 +19,5 @@ const typeDefs = gql`
     deleteProduct(id: ID!): Product
   }
 `;
+
 module.exports = typeDefs;

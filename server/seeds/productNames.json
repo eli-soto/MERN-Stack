@@ -1,36 +1,44 @@
 [
   {
+    
+    "id":1,
     "name": "Shoes1",
-    "price": "$10.00",
+    "price": 10.00,
     "description": "Shoes",
     "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-mens-shoes-87q0hf.png"
   },
   {
+    "id":2,
     "name": "Shoes2",
-    "price": "$98.00",
+    "price": 98.00,
     "description": "Shoes",
     "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5e0b7b7e-7d9a-4e1b-9f4d-8e0f9b4d6f5f/air-jordan-1-retro-high-og-shoes-9vVt8d.png"
   },
   {
+    "id":3,
     "name": "Shoes3",
-    "price": "$100.00",
+    "price": 100.00,
     "description": "Shoes",
     "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-mens-shoes-87q0hf.png"
   },
   {
+    "id":4,
     "name": "Shoes4",
-    "price": "$50.00",
+    "price": 50.00,
     "description": "Shoes",
     "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5e0b7b7e-7d9a-4e1b-9f4d-8e0f9b4d6f5f/air-jordan-1-retro-high-og-shoes-9vVt8d.png"
-  },{
+  },
+  {
+      "id":5,
     "name": "Shoes5",
-    "price": "$32.00",
+    "price": 32.00,
     "description": "Shoes",
     "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-mens-shoes-87q0hf.png"
   },
   {
+    "id":6,
     "name": "Shoes6",
-    "price": "$35.00",
+    "price": 25.00,
     "description": "Shoes",
     "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/5e0b7b7e-7d9a-4e1b-9f4d-8e0f9b4d6f5f/air-jordan-1-retro-high-og-shoes-9vVt8d.png"
   }
