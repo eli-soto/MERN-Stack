@@ -1,9 +1,6 @@
 const resolvers = {
   Query: {
-    products: () => {
-      return products;
-    },
-    product:(parent,args) => {
+    Products:(parent,args) => {
       const {id} = args;
       return products.id === id;
     }
@@ -17,12 +14,12 @@ const resolvers = {
         price,
         description
       }
-      products.push(newProduct);
+      Products.push(newProduct);
       return newProduct;
     },
     updateProduct: (parent,args) => {
       const {id,name,price,description } = args;
-      const product = products.find(product => product.id === id);
+      const product = Products.find(product => product.id === id);
       product.name = name;
       product.price = price;
       product.description = description;
@@ -30,8 +27,8 @@ const resolvers = {
     },
     deleteProduct: (parent,args) => {
       const {id } = args;
-      const product = products.find(product => product.id === id);
-      products = products.filter(product => product.id !== id);
+      const product = Products.find(product => product.id === id);
+      products = Products.filter(product => product.id !== id);
       return product;
     }
   }

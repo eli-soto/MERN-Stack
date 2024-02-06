@@ -1,11 +1,11 @@
 const db = require('../config/connection');
-const { Tech } = require('../models');
+const {items} = require('../models');
 const cleanDB = require('./cleanDB');
 
 const techData = require('./techData.json');
 
 db.once('open', async () => {
-  await cleanDB('Tech', 'teches');
+  await cleanDB('items');
 
   await Tech.insertMany(techData);
 
