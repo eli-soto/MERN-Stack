@@ -1,25 +1,26 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_Products = gql`
-  query tech {
-    tech {
+  query product {
+    getAllProduct {
       _id
       name
+      price
+      description
     }
   }
 `;
 
-export const QUERY_Items = gql`
-  query Products($_id: String) {
-    getProducts(_id: $_id) {
-      _id
-      item1
-      item2
-      item3
-      item4
-      item5
-      item6
-
-    }
+export const QUERY_ITEM =  gql` 
+query products($productId: ID!) {
+  getProduct(productId: $productId) {
+    _id
+    price
+    name
+    description
+  },
   }
+
 `;
+console.log(QUERY_PRODUCT)
+
