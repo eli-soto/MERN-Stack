@@ -7,7 +7,7 @@ const typeDefs =`
   }
 
   type Query {
-    getAllProduct: [Product]!
+    getAllProduct: [Product]
     getProduct(productId: ID!): Product
     
   }
@@ -19,4 +19,4 @@ const typeDefs =`
   }
 `;
 
-module.exports = typeDefs
+module.exports = typeDefs;
