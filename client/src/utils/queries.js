@@ -19,7 +19,6 @@ export const QUERY_Items = gql`
       item4
       item5
       item6
-
     }
   }
 `;
