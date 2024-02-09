@@ -1,25 +1,24 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_TECH } from '../utils/queries';
-import { CREATE_MATCHUP } from '../utils/mutations';
+import { QUERY_PRODUCTS } from '../utils/queries';
+ import { CREATE_PRODUCT } from '../utils/mutations';
 
 const Matchup = () => {
-  const { loading, data } = useQuery(QUERY_TECH);
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
 
-  const techList = data?.tech || [];
+  const productList = data?.getAllProduct || [];
 
-  const [formData, setFormData] = useState({
-    tech1: 'JavaScript',
-    tech2: 'JavaScript',
-  });
+  console.log("PRODUCT LIST: ", productList)
+
+  const [productName, setProductName] = useState("");
   let navigate = useNavigate();
 
-  const [createMatchup, { error }] = useMutation(CREATE_MATCHUP);
+   const [createProduct, { error }] = useMutation(CREATE_PRODUCT);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setProductName({ ...productName, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -50,19 +49,19 @@ const Matchup = () => {
         {loading ? (
           <div>Loading...</div>
         ) : (
-          <form onSubmit={handleFormSubmit}>
+          <form >
             <label>Tech 1: </label>
-            <select name="tech1" onChange={handleInputChange}>
-              {techList.map((tech) => {
+            <select name="product">
+              {productList.map((product) => {
                 return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
+                  <option key={product._id} value={product.name}>
+                    {product.name}
                   </option>
                 );
               })}
             </select>
             <label>Tech 2: </label>
-            <select name="tech2" onChange={handleInputChange}>
+            {/* <select name="tech2" onChange={handleInputChange}>
               {techList.map((tech) => {
                 return (
                   <option key={tech._id} value={tech.name}>
@@ -70,14 +69,14 @@ const Matchup = () => {
                   </option>
                 );
               })}
-            </select>
+            </select> */}
             <button className="btn btn-danger" type="submit">
               Create Matchup!
             </button>
           </form>
         )}
       </div>
-      {error && <div>Something went wrong...</div>}
+      {/* {error && <div>Something went wrong...</div>} */}
     </div>
   );
 };

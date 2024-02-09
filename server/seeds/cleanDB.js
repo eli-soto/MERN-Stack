@@ -1,16 +1,11 @@
 const models = require('../models');
 const db = require('../config/connection');
 
-module.exports = async (modelName, collectionName) => {
-  try {
-    let modelExists = await models[modelName].db.db.listCollections({
-      name: collectionName
-    }).toArray()
-
-    if (modelExists.length) {
-      await db.dropCollection(collectionName);
-    }
-  } catch (err) {
-    throw err;
-  }
-}
+module.exports = //Deleting all Products in the database
+  async () => {
+    await db.once('open', async () => {
+      await models.Product.deleteMany({});
+      console.log('Database cleaned!');
+      process.exit(0);
+    });
+  };

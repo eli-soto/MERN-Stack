@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
+import { QUERY_ITEM } from '../utils/queries';
+import { useState } from 'react';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
+  const { loading, data } = useQuery(QUERY_ITEM, {
     fetchPolicy: "no-cache"
   });
 
-  const matchupList = data?.matchups || [];
+  const ProductsList = data?.Products || [];
 
   return (
     <div className="card bg-white card-rounded w-50">
@@ -20,11 +21,11 @@ const Home = () => {
           <div>Loading...</div>
         ) : (
           <ul className="square">
-            {matchupList.map((matchup) => {
+            {ProductsList.map((getProducts) => {
               return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
+                <li key={getProducts._id}>
+                  <Link to={{ pathname: `/getProducts/${getProducts._id}` }}>
+                    {getProducts.tech1} vs. {matchup.tech2}
                   </Link>
                 </li>
               );
