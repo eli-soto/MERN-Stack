@@ -1,7 +1,8 @@
-const Items = require('../models');
+const Items = require('../models')
 const resolvers = {
   Query: {
     getAllProduct: async() => {
+      console.log("test1")
       return Items.find();
     },
 
@@ -12,6 +13,9 @@ const resolvers = {
   },
   Mutation: {
     createProduct: async(parent, { id, name, price, description }) => {
+      if( await Items.findById(id)) {
+        return
+      }
       return Items.create({ id, name, price, description });
     },
     updateProduct: async(parent, { id, name, price, description }) => {
