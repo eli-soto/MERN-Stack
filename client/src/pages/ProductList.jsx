@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../utils/queries';
-
+import ProductCard from './ProductCard'
 const ProductList = () => {
   // Fetch products data using useQuery hook
   const { loading, error, data } = useQuery(QUERY_PRODUCTS);
@@ -16,9 +16,7 @@ const ProductList = () => {
         {data.getAllProduct.map(product => (
           <div key={product._id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-              <p className="text-gray-600 mb-4">{product.description}</p>
-              <p className="text-lg font-bold">{product.price} USD</p>
+              <ProductCard product= {product}></ProductCard>
             </div>
           </div>
         ))}
@@ -26,5 +24,4 @@ const ProductList = () => {
     </div>
   );
 };
-
 export default ProductList;

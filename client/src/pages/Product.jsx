@@ -2,7 +2,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-const ProductList = () => {
+const Product = () => {
   // Dummy product data
   const products = [
     { id: 1, name: 'Product 1', price: 10.99 },
@@ -11,7 +11,7 @@ const ProductList = () => {
   ];
 
   return (
-    <div className="product-list">
+    <div className="product">
       {products.map(product => (
         <ProductCard key={product.id} product={product} />
       ))}
@@ -19,4 +19,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default Product;

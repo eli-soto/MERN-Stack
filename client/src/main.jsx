@@ -1,28 +1,22 @@
-import ReactDOM from 'react-dom';
-import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import App from './App';
-
-// Create Apollo Client instance
-const client = new ApolloClient({
-  uri: '/graphql',
-  cache: new InMemoryCache(),
-});
-
-// Create a browser router configuration
+import ReactDOM from 'react-dom/client';
+import {createBrowserRouter,RouterProvider } from 'react-router-dom';
+import App from './App.jsx';
+import Home from './pages/Home.jsx';
+import ProductList from './pages/ProductList.jsx';
+import Product from './pages/Product.jsx';
+import NotFound from './pages/NotFound.jsx';
+import './App.css';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
-  }
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'productList', element: <ProductList /> },
+      { path: 'product', element: <Product /> },
+    ],
+  },
 ]);
-
-// Render the application with createRoot
-createRoot(document.getElementById('root')).render(
-  <ApolloProvider client={client}>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
-  </ApolloProvider>
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RouterProvider router={router} />)
