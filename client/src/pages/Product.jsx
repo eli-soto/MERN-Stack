@@ -6,8 +6,12 @@ const Product = () => {
   const [cart, setCart] = useState([]);
 
   const products = [
-    { id: 1, name: 'Product 1', price: 10.99 },
-    { id: 2, name: 'Product 2', price: 20.99 },
+    { id: 1, name: 'Air Jordan 4 "Bred"', price: 249.99 }, 
+    { id: 2, name: 'Yeezys 350', price: 410.99 },
+    { id: 3, name: 'Off White SB "University Red"', price: 121.99 },
+    { id: 4, name: 'Kobe 6 "Pronto"', price: 221.99 },
+    { id: 5, name: 'Adidas Samba', price: 109.99 },
+    { id: 6, name: 'Yeezys "Zebra"', price: 221.99 },
     // Add more product data as needed
   ];
 
