@@ -1,34 +1,21 @@
-import React from 'react';
-import Navbar from './Navbar';
-import Home from './Home';
-import ProductList from './ProductList';
-import Product from './Product';
-import NotFound from './NotFound';
-
-const App = () => {
-  // Get the current URL path
-  const currentPath = window.location.pathname;
-
-  // Render the corresponding component based on the URL path
-  const renderComponent = () => {
-    switch (currentPath) {
-      case '/':
-        return <Home />;
-      case '/products':
-        return <ProductList />;
-      case '/product/:id':
-        return <Product />;
-      default:
-        return <NotFound />;
-    }
-  };
-
+import './App.css';
+import { Outlet } from 'react-router-dom';
+import Navbar from './pages/Navbar';
+import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache()
+});
+function App(){
   return (
-    <div>
+    <ApolloProvider client={client}>
+    <div className ="flex-col justify-center align-center min-100-vh bg-primary">
       <Navbar />
-      {renderComponent()}
-    </div>
-  );
-};
+      <Outlet />
+      </div>
+    </ApolloProvider>
+  )
+}
+
 
 export default App;

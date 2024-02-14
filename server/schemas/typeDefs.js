@@ -4,6 +4,7 @@ const typeDefs =`
     name: String
     price: Float
     description: String
+    image: String!
   }
 
   type Query {
