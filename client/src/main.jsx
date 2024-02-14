@@ -1,34 +1,24 @@
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import {createBrowserRouter,RouterProvider } from 'react-router-dom';
 import App from './App.jsx';
-// import Home from './pages/Home';
-import Matchup from './pages/Product.jsx';
-// import Vote from './pages/Vote';
-// import NotFound from './pages/NotFound';
-
+import Home from './pages/Home.jsx';
+import ProductList from './pages/ProductList.jsx';
+import Product from './pages/Product.jsx';
+import NotFound from './pages/NotFound.jsx';
+import './App.css';
+import Cart from './pages/Cart.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
-      // {
-      //   index: true,
-      //   element: <Home />
-      // }, 
-      {
-        path: '/products',
-        element: <Matchup />
-      },
-      // {
-      //   path: '/matchup/:id',
-      //   element: <Vote />
-      // },
+      { index: true, element: <Home /> },
+      { path: 'productList', element: <ProductList /> },
+      { path: 'product', element: <Product /> },
+      { path: 'cart', element: <Cart/>}
     ],
   },
 ]);
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RouterProvider router={router} />)

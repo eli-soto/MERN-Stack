@@ -4,6 +4,7 @@ const typeDefs =`
     name: String
     price: Float
     description: String
+    image: String!
   }
 
   type Query {
@@ -13,9 +14,18 @@ const typeDefs =`
   }
 
   type Mutation {
-    createProduct(id: ID!,name: String!, price: Float!, description: String!): Product
-    updateProduct(id: ID!, name: String!, price: Float!, description: String!): Product
-    deleteProduct(id: ID!): Product
+    createProduct(id: ID!,
+      name: String!, 
+      price: Float!, 
+      description: String!
+      ): Product
+    
+      updateProduct(id: ID!, 
+      name: String!, 
+      price: Float!, 
+      description: String!): Product
+    
+      deleteProduct(id: ID!): Product
   }
 `;
 

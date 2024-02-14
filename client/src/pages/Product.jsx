@@ -1,84 +1,89 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
-import { QUERY_PRODUCTS } from '../utils/queries';
- import { CREATE_PRODUCT } from '../utils/mutations';
+import React, { useState } from 'react';
 
-const Matchup = () => {
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+const Product = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  const productList = data?.getAllProduct || [];
+  const products = [
+    { id: 1, name: 'Product 1', price: 10.99 },
+    { id: 2, name: 'Product 2', price: 20.99 },
+    // Add more product data as needed
+  ];
 
-  console.log("PRODUCT LIST: ", productList)
-
-  const [productName, setProductName] = useState("");
-  let navigate = useNavigate();
-
-   const [createProduct, { error }] = useMutation(CREATE_PRODUCT);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setProductName({ ...productName, [name]: value });
+  const handleSearch = () => {
+    const [minPrice, maxPrice] = searchQuery.split('-').map(parseFloat);
+    const filtered = products.filter(product => {
+      return product.price >= minPrice && product.price <= maxPrice;
+    });
+    setFilteredProducts(filtered);
   };
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const { data } = await createMatchup({
-        variables: { ...formData },
+  const addToCart = (product) => {
+    const existingProduct = cart.find(item => item.id === product.id);
+    if (existingProduct) {
+      const updatedCart = cart.map(item => {
+        if (item.id === product.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
       });
-
-      navigate(`/matchup/${data.createMatchup._id}`);
-    } catch (err) {
-      console.error(err);
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
+  };
 
-    setFormData({
-      tech1: 'JavaScript',
-      tech2: 'JavaScript',
-    });
+  const removeFromCart = (productId) => {
+    const updatedCart = cart.filter(item => item.id !== productId);
+    setCart(updatedCart);
   };
 
   return (
-    <div className="card bg-white card-rounded w-25">
-      <div className="card-header bg-dark text-center">
-        <h1>Let's create a matchup!</h1>
+    <div className="product">
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Enter price range (e.g., 10-20)"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
       </div>
-      <div className="card-body m-5">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <form >
-            <label>Tech 1: </label>
-            <select name="product">
-              {productList.map((product) => {
-                return (
-                  <option key={product._id} value={product.name}>
-                    {product.name}
-                  </option>
-                );
-              })}
-            </select>
-            <label>Tech 2: </label>
-            {/* <select name="tech2" onChange={handleInputChange}>
-              {techList.map((tech) => {
-                return (
-                  <option key={tech._id} value={tech.name}>
-                    {tech.name}
-                  </option>
-                );
-              })}
-            </select> */}
-            <button className="btn btn-danger" type="submit">
-              Create Matchup!
-            </button>
-          </form>
-        )}
-      </div>
-      {/* {error && <div>Something went wrong...</div>} */}
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map(product => (
+          <div key={product.id} className="product-card">
+            <h3>{product.name}</h3>
+            <p>${product.price}</p>
+            <button onClick={() => addToCart(product)}>Add to Cart</button>
+          </div>
+        ))
+      ) : (
+        products.map(product => (
+          <div key={product.id} className="product-card">
+            <h3>{product.name}</h3>
+            <p>${product.price}</p>
+            <button onClick={() => addToCart(product)}>Add to Cart</button>
+          </div>
+        ))
+      )}
+      <h2>Cart</h2>
+      {cart.length > 0 ? (
+        <div>
+          {cart.map(item => (
+            <div key={item.id}>
+              <h3>{item.name}</h3>
+              <p>Quantity: {item.quantity}</p>
+              <p>Price: ${item.price}</p>
+              <button onClick={() => removeFromCart(item.id)}>Remove from Cart</button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No items in cart</p>
+      )}
     </div>
   );
 };
 
-export default Matchup;
+export default Product;

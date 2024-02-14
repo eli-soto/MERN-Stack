@@ -11,14 +11,18 @@ export const CREATE_PRODUCT = gql`
   }
 `;
 
-export const CREATE_VOTE = gql`
-  mutation createVote($_id: String!, $techNum: Int!) {
-    createVote(_id: $_id, techNum: $techNum) {
-      _id
-      tech1
-      tech2
-      tech1_votes
-      tech2_votes
-    }
-  }
+export const  UPDATE_PRODUCT = gql`
+mutation UpdateProduct($updateProductId: ID!, $name: String!, $price: Float!, $description: String!) {
+  updateProduct(id: $updateProductId, name: $name, price: $price, description: $description)
 `;
+export const  DELETE_PRODUCT = gql`
+mutation DeleteProduct($deleteProductId: ID!) {
+  deleteProduct(id: $deleteProductId) {
+    _id
+    price
+    name
+    description
+  }
+}
+`;
+

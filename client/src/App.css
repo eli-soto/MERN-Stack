@@ -1,9 +1,5 @@
+/* App.css */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 * {
   margin: 0;
@@ -12,51 +8,165 @@
   scroll-behavior: smooth;
 }
 
-@layer components {
-  .max-container {
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-
-  .input {
-    @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-gray pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-gray max-sm:rounded-full;
-  }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f7fafc;
+  background-color:#434190
 }
 
-@layer utilities {
-  .padding {
-    @apply sm:px-16 px-8 sm:py-24 py-12;
-  }
+.max-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  .padding-x {
-    @apply sm:px-16 px-8;
-  }
+.padding-y {
+  padding: 32px 0;
+}
 
-  .padding-y {
-    @apply sm:py-24 py-12;
-  }
+.btn-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #4c51bf;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
 
-  .padding-l {
-    @apply sm:pl-16 pl-8;
-  }
+.btn-primary:hover {
+  background-color: #434190;
+}
 
-  .padding-r {
-    @apply sm:pr-16 pr-8;
-  }
+.text-center {
+  text-align: center;
+}
 
-  .padding-t {
-    @apply sm:pt-24 pt-12;
-  }
+.text-lg {
+  font-size: 1.125rem;
+}
 
-  .padding-b {
-    @apply sm:pb-24 pb-12;
-  }
+.text-4xl {
+  font-size: 2.25rem;
+}
 
-  .info-text {
-    @apply font-montserrat text-slate-gray text-lg leading-7;
-  }
+.font-bold {
+  font-weight: 700;
+}
 
-  .scrolled {
-    @apply opacity-90 transition-all duration-150 ease-in;
-  }
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for product cards */
+.product-card {
+  width: 200px;
+  margin: 0 10px 20px 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.product-card button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #218838;
+}
+
+/* Style for the cart section */
+.cart {
+  margin-top: 40px;
+}
+
+.cart h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.cart-item h3 {
+  font-size: 18px;
+}
+
+.cart-item p {
+  font-size: 16px;
+}
+
+.cart-item button {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item button:hover {
+  background-color: #c82333;
 }
