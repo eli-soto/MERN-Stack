@@ -47,6 +47,17 @@ Include authentication (JWT).
 Protect sensitive API key information on the server.
 ```
 
+## Installation 
+In your terminal run: 
+```npm install```
 
+
+## Contributing
+Victor Hernandez 
+Eliceo Soto
+
+
+## Questions 
+Please feel free to reach out mailto: eliceocsoto@gmail.com 
 
 
