@@ -12,16 +12,16 @@ const resolvers = {
     }
   },
   Mutation: {
-    createProduct: async(parent, { id, name, price, description }) => {
+    createProduct: async(parent, { id, name, price, description,image }) => {
       if( await Items.findById(id)) {
         return
       }
-      return Items.create({ id, name, price, description });
+      return Items.create({ id, name, price, description,image});
     },
     updateProduct: async(parent, { id, name, price, description }) => {
       return Items.findOneAndUpdate(
         { _id: id },
-        { name, price, description },
+        { name, price, description},
         { new: true }
       );
     },

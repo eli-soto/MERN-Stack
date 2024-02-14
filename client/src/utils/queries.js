@@ -7,6 +7,7 @@ export const QUERY_PRODUCTS = gql`
       name
       price
       description
+      image
     },
   }
 
@@ -19,6 +20,7 @@ query products($productId: ID!) {
     price
     name
     description
+    image
   },
   }
 
