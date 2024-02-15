@@ -4,7 +4,7 @@ const Cart = ({ location }) => {
   const cart = location?.state?.cart || []; // Use optional chaining to safely access nested properties
 
   return (
-    <div>
+    <div className = "carttexttest">
       <h2>Cart</h2>
       {cart.length > 0 ? (
         <div>
