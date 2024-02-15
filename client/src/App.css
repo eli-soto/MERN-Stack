@@ -1,4 +1,4 @@
-/* App.css */
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
 
 * {
@@ -11,7 +11,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: #f7fafc;
-  background-color:#434190
+  background-color: maroon
 }
 
 .max-container {
@@ -170,3 +170,11 @@ body {
 .cart-item button:hover {
   background-color: #c82333;
 }
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+

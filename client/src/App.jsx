@@ -1,5 +1,6 @@
 import './App.css';
 import { Outlet } from 'react-router-dom';
+import Footer from './pages/Footer.jsx';
 import Navbar from './pages/Navbar';
 import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 const client = new ApolloClient({
@@ -9,11 +10,13 @@ const client = new ApolloClient({
 function App(){
   return (
     <ApolloProvider client={client}>
-    <div className ="flex-col justify-center align-center min-100-vh bg-primary">
+    <div className ="flex flex-col min-h-screen bg-primary">
       <Navbar />
       <Outlet />
-      </div>
+   </div>
+      <Footer/>
     </ApolloProvider>
+    
   )
 }
 
