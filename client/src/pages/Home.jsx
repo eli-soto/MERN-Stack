@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome to our eCommerce Store!</h1>
-      <ProductList />
+      {/* <ProductList /> */}
     </div>
   );
 };
