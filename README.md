@@ -53,8 +53,7 @@ In your terminal run:
 
 
 ## Contributing
-Victor Hernandez 
-Eliceo Soto
+Victor Hernandez, Eliceo Soto, Landan Bichard, Jaylon Allen and Damaris Maldonado 
 
 
 ## Questions 
