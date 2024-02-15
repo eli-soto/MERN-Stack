@@ -4,9 +4,9 @@ import ProductList from './ProductList';
 const Home = () => {
   return (
     <div>
-       <h1 className="text-4xl text-center font-bold">Welcome to our eCommerce Store!</h1>
-      <h1></h1>
-      {/* <ProductList /> */}
+       <h1 className="text-4xl text-center font-bold">Welcome to our SHOE eCommerce Store!</h1>
+    
+      <ProductList/>
     </div>
   );
 };
