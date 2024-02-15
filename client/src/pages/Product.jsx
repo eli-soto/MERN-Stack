@@ -52,7 +52,7 @@ const Product = () => {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Enter price range (e.g., 10-20)"
+          placeholder="Enter price range"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
