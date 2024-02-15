@@ -166,7 +166,80 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+.carttext {
+  font-size: 24px; /* Increase font size */
+  color: #4CAF50; /* Green color */
+  text-align: center; /* Align text to the center */
+  margin: 20px auto; /* Center horizontally */
+  padding: 10px; /* Add padding */
+  width: 80%; /* Set width */
+  background-color: #f0f0f0; /* Background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+  border-radius: 8px; /* Add border radius */
+}
 
+.testcarting {
+  margin: 20px auto; /* Center horizontally */
+  padding: 10px; /* Add padding */
+  width: 80%; /* Set width */
+  background-color: #f0f0f0; /* Background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow */
+  border-radius: 8px; /* Add border radius */
+}
+
+.testcart {
+  font-size: 24px; /* Increase font size */
+  color: #4CAF50; /* Green color */
+  text-align: center; /* Align text to the center */
+}
+
+.testcart1, .testcart2 {
+  font-size: 18px; /* Set font size */
+  text-align: center; /* Align text to the center */
+  margin-bottom: 8px; /* Add margin bottom */
+}
+
+.testcart2 {
+  color: #333; /* Set color for price */
+}
+
+.testcarting button {
+  display: block; /* Make button a block element */
+  margin: 10px auto; /* Center button horizontally */
+  padding: 8px 16px; /* Add padding */
+  font-size: 16px; /* Set font size */
+  background-color: #dc3545; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Add cursor pointer */
+}
+
+.testcarting button:hover {
+  background-color: #c82333; /* Button hover background color */
+}
+div.Cart-card {
+  width: 200px;
+  margin: 0 10px 20px 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.testcarting {
+  text-align:right;
+}
+
+.cart-item button {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .cart-item button:hover {
   background-color: #c82333;
 }

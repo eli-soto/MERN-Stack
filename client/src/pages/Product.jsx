@@ -79,16 +79,16 @@ const Product = () => {
           </div>
         ))
       )}
-      <h2>Cart</h2>
+      <h2 className = "carttext">Cart</h2>
       {cart.length > 0 ? (
         <div>
           {cart.map(item => (
-            <div key={item.id}>
-              <h3>{item.name}</h3>
+            <div className= "testcarting" key={item.id}>
+              <h3 className="testcart">{item.name}</h3>
               <p> {item.description}</p>
-              <p>Quantity: {item.quantity}</p>
+              <p className = "testcart1">Quantity: {item.quantity}</p>
               <img src={product.image} />
-              <p>Price: ${item.price}</p>
+              <p className = "testcart2">Price: ${item.price}</p>
               <button onClick={() => removeFromCart(item.id)}>Remove from Cart</button>
             </div>
           ))}
