@@ -10,11 +10,10 @@ const client = new ApolloClient({
 function App(){
   return (
     <ApolloProvider client={client}>
-    <div className ="flex-col justify-center align-center min-h-screen bg-primary">
+    <div className ="flex flex-col min-h-screen bg-primary">
       <Navbar />
       <Outlet />
-   
-      </div>
+   </div>
       <Footer/>
     </ApolloProvider>
     
